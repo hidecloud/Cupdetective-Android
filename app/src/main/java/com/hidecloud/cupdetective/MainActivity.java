@@ -44,18 +44,18 @@ public class MainActivity extends ActionBarActivity {
         final ImageView imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.ruler));
         Button button = (Button) findViewById(R.id.changeDirection);
-        button.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (direction) {
-                    imageView.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.rulerop));
-                    direction = false;
-                    return false;
-                }
-                imageView.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ruler));
-                direction = true;
-                return false;
+
+        button.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            if (direction) {
+              imageView.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.rulerop));
+              direction = false;
+            } else {
+              imageView.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ruler));
+              direction = true;
             }
+          }
         });
 
         surfaceHolder = surfaceView.getHolder();
